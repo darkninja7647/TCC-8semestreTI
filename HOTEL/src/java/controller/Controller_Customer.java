@@ -4,7 +4,7 @@
  */
 package controller;
 
-import facade.ControleFacadeWeb;
+import br.com.commandfactory.customer.ICommand;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -17,8 +17,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author alunos
  */
-@WebServlet(name = "Controller_ClienteV2", urlPatterns = {"/Controller_ClienteV2"})
-public class Controller_ClienteV2 extends HttpServlet {
+@WebServlet(name = "Controller_Customer", urlPatterns = {"/Controller_Customer"})
+public class Controller_Customer extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,9 +33,16 @@ public class Controller_ClienteV2 extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            ControleFacadeWeb cfw = new ControleFacadeWeb();
-            cfw.acionar(request, response);
+            String paramAction = request.getParameter("btnoperacao");
+            String nomeDaClasse = "br.com.commandfactory.customer." + paramAction + "CustomerAction";
+            Class classeAction = Class.forName(nomeDaClasse);
+            ICommand commandAction = (ICommand) classeAction.newInstance();
+            String pageDispatcher = commandAction.executar(request, response);
+            request.getRequestDispatcher("/" + pageDispatcher).forward(request, response);
+        } catch (Exception ex) {
+            System.out.println("Erro: " + ex.getMessage());
+            request.setAttribute("erro", ex.getMessage());
+            request.getRequestDispatcher("erro.jsp").forward(request, response);
         }
     }
 
