@@ -11,26 +11,16 @@ import java.util.Date;
  *
  * @author darkn
  */
-public class Cliente {
+public class Customer {
 
     private int id;
     private String nome;
-    private String sobrenome;
     private String RG;
     private String CPF;
     private Date dataNascimento;
     private String sexo;
     private String telefone;
-    private String nacionalidade;
-    private String cartaodecredito;
 
-    public String getcartaodecredito() {
-        return cartaodecredito;
-    }
-
-    public void setcartaodecredito(String cartaodecredito) {
-        this.cartaodecredito = cartaodecredito;
-    }
 
     public int getId() {
         return id;
@@ -72,22 +62,6 @@ public class Cliente {
         this.telefone = telefone;
     }
 
-    public String getNacionalidade() {
-        return nacionalidade;
-    }
-
-    public void setNacionalidade(String nacionalidade) {
-        this.nacionalidade = nacionalidade;
-    }
-
-    public String getSobrenome() {
-        return sobrenome;
-    }
-
-    public void setSobrenome(String sobrenome) {
-        this.sobrenome = sobrenome;
-    }
-
     public Date getDataNascimento() {
         return dataNascimento;
     }
@@ -104,49 +78,36 @@ public class Cliente {
         this.sexo = sexo;
     }
 
-    public String getCartaodecredito() {
-        return cartaodecredito;
-    }
-
-    public void setCartaodecredito(String cartaodecredito) {
-        this.cartaodecredito = cartaodecredito;
-    }
-
     // ----------------------------BUILDER-------------------------------------
-    public static ClienteBuilder getBuilder() {
-        return new ClienteBuilder();
+    public static CustomerBuilder getBuilder() {
+        return new CustomerBuilder();
     }
 
-    public static class ClienteBuilder {
+    public static class CustomerBuilder {
 
-        private Cliente cli = new Cliente();
+        private Customer cli = new Customer();
 
-        public ClienteBuilder comId(int id) {
+        public CustomerBuilder comId(int id) {
             cli.id = id;
             return this;
         }
 
-        public ClienteBuilder comNome(String nome) {
+        public CustomerBuilder comNome(String nome) {
             cli.nome = nome;
             return this;
         }
 
-        public ClienteBuilder comSobrenome(String sobrenome) {
-            cli.sobrenome = sobrenome;
-            return this;
-        }
-
-        public ClienteBuilder comRG(String RG) {
+        public CustomerBuilder comRG(String RG) {
             cli.RG = RG;
             return this;
         }
 
-        public ClienteBuilder comCPF(String CPF) {
+        public CustomerBuilder comCPF(String CPF) {
             cli.CPF = CPF;
             return this;
         }
 
-        public ClienteBuilder comDataNascimento(int dia, int mes, int ano) {           
+        public CustomerBuilder comDataNascimento(int dia, int mes, int ano) {           
             SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-DD");
             String data = ano + "-" + mes + "-" + dia;
             try {
@@ -157,27 +118,17 @@ public class Cliente {
             return this;
         }
 
-        public ClienteBuilder comSexo(String sexo) {
+        public CustomerBuilder comSexo(String sexo) {
             cli.sexo = sexo;
             return this;
         }
 
-        public ClienteBuilder comTelefone(String telefone) {
+        public CustomerBuilder comTelefone(String telefone) {
             cli.telefone = telefone;
             return this;
         }
 
-        public ClienteBuilder comNacionalidade(String nacionalidade) {
-            cli.nacionalidade = nacionalidade;
-            return this;
-        }
-
-        public ClienteBuilder comCartaodecredito(String cartaodecredito) {
-            cli.cartaodecredito = cartaodecredito;
-            return this;
-        }
-
-        public Cliente constroi() {
+        public Customer constroi() {
             return cli;
         }
     }
