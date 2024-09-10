@@ -1,4 +1,4 @@
-<%@page import="model.Cliente"%>
+<%@page import="model.Customer"%>
 <style>
 
     :root {
@@ -65,13 +65,13 @@
 </head>
 <body>
     <main class="container">
-        <form name="f1" action="Controller_ClienteV2" method="post" class="login_form">
+        <form name="f1" action="Controller_Customer" method="post" class="login_form">
             <div class="form_header">
                 <h1 class="titulo">
                     Alterar
                 </h1>
             </div>
-            <!-- <% Cliente cli = (Cliente) request.getAttribute("cliente"); %>    -->   
+            <!-- <% Customer cli = (Customer) request.getAttribute("customer"); %>    -->   
             <div class="input_box">
                 <div class="input_field">
                     <input type="hidden" name ="txtid" value="<%out.print(cli.getId());%>"><BR>
@@ -85,16 +85,6 @@
                                 </div>
                             </label>
                         </div>  
-
-                        <div class="input_box">
-                            <label for="sobrenome" class="titulo_box">
-                                Sobrenome:
-                                <div class="input_field">
-                                    <i class="fa-solid fa-user"></i>
-                                    <input type="text" name ="txtsobrenome" value="<%out.print(cli.getSobrenome());%>"><BR>
-                                </div>
-                            </label>
-                        </div>
 
                         <div class="input_box">
                             <label for="CPF" class="titulo_box">
@@ -135,30 +125,11 @@
                         </div>
 
                         <div class="input_box">
-                            <label for="Nacionalidade" class="titulo_box">
-                                Nacionalidade:
-                                <div class="input_field">
-                                    <i class="fa-solid fa-user"></i>
-                                    <input type="text" name ="txtnacionalidade" value="<%out.print(cli.getNacionalidade());%>"><BR>
-                                </div>
-                            </label>
-                        </div>
-
-                        <div class="input_box">
                             <label for="Rg" class="titulo_box">
                                 RG:
                                 <div class="input_field">
                                     <i class="fa-solid fa-user"></i>
                                     <input type="text" name ="txtRG" value="<%out.print(cli.getRG());%>"><BR>
-                                </div>
-                            </label>
-                        </div>
-
-                        <div class="input_box">
-                            <label for="cartaodecredito" class="titulo_box">
-                                Cartao de credito:
-                                <div class="input_field">
-                                    <input type="text" name ="txtcartaodecredito" value="<%out.print(cli.getcartaodecredito());%>"><BR><BR>
                                 </div>
                             </label>
                         </div>

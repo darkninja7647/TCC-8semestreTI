@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.List"%>
-<%@page import="model.Cliente"%>
+<%@page import="model.Customer"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -141,46 +141,40 @@
     </head>
     <body>
         <main class="container">
-            <form name="form_cliente" action="Controller_ClienteV2" method="post" class="nav">
+            <form name="form_cliente" action="Controller_Customer" method="post" class="nav">
                 <input type="text" name ="txtid" id="barradepesquisa" placeholder="coloque o ID para a pesquisa"><BR>
                 <input type="submit" name="btnoperacao" value="ConsultarById" id="botaopesquisa">
             </form>
-            <%List<Cliente> lista = (List<Cliente>) request.getAttribute("lista");
+            <%List<Customer> lista = (List<Customer>) request.getAttribute("lista");
             if (lista.size() > 0) {%>
             <table class="fl-table">  
                 <tr>
                 <thead>
                 <th>ID</th>
                 <th>Nome</th>
-                <th>sobrenome</th>
                 <th>RG</th>
                 <th>CPF</th>
                 <th>idade</th>
                 <th>sexo</th>
                 <th>telefone</th>
-                <th>nacionalidade</th>     
-                <th>Cartão de credito</th>
                 <th>Deletar</th> 
                 <th>Alterar</th> 
 
                 </thead>
 
                 </tr>
-                <tr><h2>Tabela</h2><%for (Cliente cli : lista) {
+                <tr><h2>Tabela</h2><%for (Customer cli : lista) {
                 %><td><%out.println(cli.getId());%></td>
                 <td><%out.println(cli.getNome());%></td>
-                <td><%out.println(cli.getSobrenome());%></td>
                 <td><%out.println(cli.getRG());%></td>
                 <td><%out.println(cli.getCPF());%></td>
                 <td><%out.println(cli.getDataNascimento());%></td>
                 <td><%out.println(cli.getSexo());%></td>
                 <td><%out.println(cli.getTelefone());%></td>
-                <td><%out.println(cli.getNacionalidade());%></td>
-                <td><%out.println(cli.getcartaodecredito());%></td>
-                <td><a href="http://localhost:8080/HOTEL2/Controller_ClienteV2?btnoperacao=Deletar&txtid=<%out.print(cli.getId());%>">
+                <td><a href="http://localhost:8080/HOTEL2/Controller_Customer?btnoperacao=Deletar&txtid=<%out.print(cli.getId());%>">
                         <img src="imagem/trash.png" id="imagemlixo"></a>
                 </td>
-                <td><a href="http://localhost:8080/HOTEL2/Controller_ClienteV2?btnoperacao=Alterar&txtid=<%out.print(cli.getId());%>">
+                <td><a href="http://localhost:8080/HOTEL2/Controller_Customer?btnoperacao=Alterar&txtid=<%out.print(cli.getId());%>">
                         <img src="imagem/lapis.png" id="imagemedit"></a>
                 </td>
                 </tr><%}%>
@@ -190,6 +184,11 @@
             %>
             <div class="botoes">
                 <button onclick="window.location.href = 'http://localhost:8080/HOTEL2/cadastrocliente.jsp'" class="botao botao-primario ">CADASTRAR</button>
+            </div>
+            <div class="botoes">
+                <form action="Controller_Room" method="post">
+                    <button name="btnoperacaoroom" value="ConsultarTodos" >quartos</button>
+                </form>
             </div>
         </main>
 

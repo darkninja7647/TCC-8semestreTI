@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.List"%>
-<%@page import="model.Cliente"%>
+<%@page import="model.Customer"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,20 +16,17 @@
     <body>
         <h1>String </h1>
         <table>
-            <tr>
             <caption>Tabela</caption>
-            <td> <% Cliente cli = (Cliente) request.getAttribute("cliente");%> </td> <%
-            %><td><%out.println(cli.getId());%></td><%
-            %><td><%out.println(cli.getNome());%></td><%
-            %><td><%out.println(cli.getSobrenome());%></td>
-            %><td><%out.println(cli.getRG());%></td><%
-            %><td><%out.println(cli.getCPF());%></td><%
-            %><td><%out.println(cli.getDataNascimento());%></td><%
-            %><td><%out.println(cli.getSexo());%></td><%
-            %><td><%out.println(cli.getTelefone());%></td><%
-            %><td><%out.println(cli.getNacionalidade());%></td>
-            %><td><%out.println(cli.getcartaodecredito());%></td>
+            <tr>
+                <td><% Customer cli = (Customer) request.getAttribute("customer");%> </td> <%
+                %><td><%out.println(cli.getId());%></td><%
+                %><td><%out.println(cli.getNome());%></td><%
+                %><td><%out.println(cli.getRG());%></td><%
+                %><td><%out.println(cli.getCPF());%></td><%
+                %><td><%out.println(cli.getDataNascimento());%></td><%
+                %><td><%out.println(cli.getSexo());%></td><%
+                %><td><%out.println(cli.getTelefone());%></td>
             </tr>
-        </table>   
-</body>
+        </table>
+    </body>
 </html>
