@@ -1,0 +1,176 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Layout Grid */
+.parent {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 20px;
+    width: 80%;
+    padding: 20px;
+}
+
+/* Quarto Container */
+.div1 {
+    grid-area: 1 / 1 / 4 / 2;
+    background-color: #ffffff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    max-height: 700px; /* Define uma altura máxima para o container */
+    overflow-y: auto; /* Adiciona uma barra de rolagem vertical quando necessário */
+}
+
+.room-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 10%);
+    justify-content: center;
+    gap: 10px;
+}
+
+.room-grid button {
+    width: 80px;
+    height: 120px; /* Aumentar um pouco a altura para incluir o número do quarto */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* Opacidade padrão das imagens */
+.room-grid img {
+    width: 100%;
+    height: 100px; /* Ajustar a altura da imagem */
+    opacity: 0.4; /* Opacidade inicial */
+    transition: opacity 0.3s; /* Animação suave para alteração de opacidade */
+}
+
+/* Classe para imagem selecionada com opacidade total */
+.selecionado {
+    opacity: 1;
+}
+
+
+.room-number {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #333;
+    font-weight: bold;
+}
+
+
+/* Sidebar Containers */
+.filtro, .funcoes, .telas {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.filtro h2, .funcoes h2, .telas h2 {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+/* Filtro Botões */
+.filtro {
+    grid-area: 1 / 2 / 2 / 3;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+}
+.filtro img {
+    width: 20px;
+    height:100%; /* Ajustar a altura da imagem */
+}
+:root {
+    --color-busy: red;
+    --color-free: green;
+    --color-governance: orange;
+    --color-maintenance: gray;
+}
+
+.btn-busy {
+    background-color: var(--color-busy);
+}
+
+.btn-free {
+    background-color: var(--color-free);
+}
+
+.btn-governance {
+    background-color: var(--color-governance);
+}
+
+.btn-maintenance {
+    background-color: var(--color-maintenance);
+}
+
+/* Funções Botões */
+.funcoes {
+    grid-area: 2 / 2 / 3 / 3;
+}
+
+.funcoes button {
+    width: 90%;
+    margin: 5px 0;
+    padding: 8px 0;
+    background-color: #ddd;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.funcoes a {
+    color: #333; /* ou escolha a cor desejada, como color: black; */
+    text-decoration: none; /* remove o sublinhado */
+}
+
+.funcoes button:hover {
+    background-color: #ccc;
+}
+
+/* Telas Botões */
+.telas {
+    grid-area: 3 / 2 / 4 / 3;
+}
+
+.telas button {
+    width: 90%;
+    margin: 5px 0;
+    padding: 8px 0;
+    background-color: #ddd;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.telas button:hover {
+    background-color: #ccc;
+}
