@@ -223,7 +223,7 @@
                 <table class="fl-table">
                     <thead>
                         <tr>
-                            <th>Room</th>
+                            <th>Numero do quarto</th>
                             <th>Remetente</th>
                             <th>Destinatário</th>
                             <th>tipo Solicitação</th>
