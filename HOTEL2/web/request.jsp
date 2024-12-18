@@ -223,7 +223,7 @@
                 <table class="fl-table">
                     <thead>
                         <tr>
-                            <th>ID Room</th>
+                            <th>Room</th>
                             <th>Remetente</th>
                             <th>Destinatário</th>
                             <th>tipo Solicitação</th>
